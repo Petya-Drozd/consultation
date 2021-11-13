@@ -1,0 +1,93 @@
+.btn {
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 5px;
+  background-color: #DEBD9B;
+  transition: all .3s linear;
+  text-transform: capitalize;
+  &:hover {
+    background-color: #8DBCD2;
+    color: #fff;
+  }
+}
+
+.block__title {
+  margin-bottom: 40px;
+  text-align: center;
+  text-transform: capitalize;
+  h2 {
+    font-weight: 600;
+    font-size: 50px;
+    font-family: serif;
+  }
+}
+
+// header fix
+.header {
+  &.header__fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #000;
+    transition: 1s linear;
+    animation-name: headfix;
+    animation-duration: 1s;
+  }
+}
+
+@keyframes headfix {
+  0% {
+    transform: translateY(-70px);
+    opacity: .2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// burger icon
+@media (max-width:992px) {
+  .icon__menu {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 25px;
+    // background-color: #000;
+    cursor: pointer;
+    span {
+      width: 35px;
+      height: 2px;
+      background-color: #fff;
+      transition: all .2s linear;
+    }
+    &.active {
+      span {
+        &:first-child {
+          transform-origin:left;
+          transform: rotateZ(45deg) translateY(-1px);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          transform-origin:left;
+          transform: rotateZ(-45deg) translateY(1px);
+        }
+      }
+    }
+  }
+}
+@media (max-width:576px) {
+  .block__title {
+    h2 {
+      font-size: 40px;
+    }
+  }
+}
